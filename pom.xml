@@ -54,6 +54,19 @@
                             <goal>execute</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>test-iphone</id>
+                        <phase>test</phase>
+                        <configuration>
+                            <env>iphone</env>
+                            <inParallel>true</inParallel>
+                            <nodes>4</nodes>
+                            <specsDir>specs</specsDir>
+                        </configuration>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>

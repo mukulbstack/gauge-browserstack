@@ -27,13 +27,21 @@ public class DriverFactory {
             DesiredCapabilities caps = new DesiredCapabilities();
 
             // Capabilities from environment
-            caps.setCapability("browser", System.getenv("BROWSER"));
-            caps.setCapability("browser_version", System.getenv("BROWSER_VERSION"));
-            caps.setCapability("build", System.getenv("BUILD"));
-            caps.setCapability("os", System.getenv("OS"));
-            caps.setCapability("os_version", System.getenv("OS_VERSION"));
+            if(System.getenv("DEVICE") !=  null){
+                caps.setCapability("browserName", System.getenv("BROWSERNAME"));
+                caps.setCapability("platform", System.getenv("PLATFORM"));
+                caps.setCapability("device", System.getenv("DEVICE"));
+            }
+            else {
+                caps.setCapability("browser", System.getenv("BROWSER"));
+                caps.setCapability("browser_version", System.getenv("BROWSER_VERSION"));
+                
+                caps.setCapability("os", System.getenv("OS"));
+                caps.setCapability("os_version", System.getenv("OS_VERSION"));
+            }
 
             // Hardcoded capabilities
+            caps.setCapability("build", "FirstGaugeBuild");
             caps.setCapability("browserstack.debug", "true");
 
             URL remoteURL = new URL(URL);

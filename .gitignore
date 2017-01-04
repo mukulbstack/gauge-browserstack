@@ -20,3 +20,5 @@ hs_err_pid*
 logs/
 gauge_bin
 target/
+
+*.DS_Store
